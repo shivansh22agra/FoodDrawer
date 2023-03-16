@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) =>  MaterialApp(
+          darkTheme: ThemeData.dark(),
+          
+          theme: ThemeData(
+          ),
           debugShowCheckedModeBanner: false,
               initialRoute: CustomPageView.id,
               routes: {

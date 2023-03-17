@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fooddrawer_app/constants.dart';
 import 'package:fooddrawer_app/rive_utils.dart';
+import 'package:fooddrawer_app/screens/cart_page.dart';
+import 'package:fooddrawer_app/screens/home_page.dart';
+import 'package:fooddrawer_app/screens/profile_page.dart';
+import 'package:fooddrawer_app/screens/search_page.dart';
 import 'package:rive/rive.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -13,6 +17,11 @@ class CustomPageView extends StatefulWidget {
 }
 
 class _CustomPageViewState extends State<CustomPageView> {
+  int SelectectBottomIndex = 0;
+  PageController pageController = PageController(
+    initialPage: 0,
+    viewportFraction: 1
+  );
   // Rive Rive = Rive();
   List<Rive> bottomIcons = [
     Rive(
@@ -36,6 +45,11 @@ class _CustomPageViewState extends State<CustomPageView> {
   Widget build(BuildContext context) {
     print(bottomIcons.length + 1);
     return Scaffold(
+      body: PageView(
+        controller: pageController,
+
+        children: [HomeScreen(), SearchScreen(), CartScreen(), ProfileScreen()],
+      ),
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: EdgeInsets.all(12.sp),
@@ -48,27 +62,39 @@ class _CustomPageViewState extends State<CustomPageView> {
               ...List.generate(bottomIcons.length, (index) {
                 return GestureDetector(
                   onTap: () {
+                    SelectectBottomIndex = index;
                     print(bottomIcons[index].input?.value);
                     bottomIcons[index].input?.change(true);
                     Future.delayed(const Duration(seconds: 1), () {
                       bottomIcons[index].input?.change(false);
                     });
+                    pageController.animateToPage(
+                       index,
+                       curve: Curves.easeInOut,
+                      duration: const Duration(milliseconds: 500),
+                    );
 
                     setState(() {});
                   },
                   child: SizedBox(
                     height: 30.h,
                     width: 30.w,
-                    child: RiveAnimation.asset(
-                      "assets/allIcons.riv",
-                      artboard: bottomIcons[index].artboard,
-                      onInit: (artboard) {
-                        StateMachineController? controller =
-                            Riveutils.getRiveController(artboard,
-                                bottomIcons[index].stateMachineName.toString());
-                        bottomIcons[index].input =
-                            controller?.findSMI("active");
-                      },
+                    child: Opacity(
+                      opacity: SelectectBottomIndex == index ? 1 : 0.5,
+                      child: RiveAnimation.asset(
+                        "assets/allIcons.riv",
+                        artboard: bottomIcons[index].artboard,
+                        onInit: (artboard) {
+                          StateMachineController? controller =
+                              Riveutils.getRiveController(
+                                  artboard,
+                                  bottomIcons[index]
+                                      .stateMachineName
+                                      .toString());
+                          bottomIcons[index].input =
+                              controller?.findSMI("active");
+                        },
+                      ),
                     ),
                   ),
                 );

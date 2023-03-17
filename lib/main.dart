@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fooddrawer_app/customPageView.dart';
 import 'package:fooddrawer_app/screens/Home_page.dart';
+import 'package:fooddrawer_app/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +24,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
           ),
           debugShowCheckedModeBanner: false,
-              initialRoute: CustomPageView.id,
+              initialRoute: SplashScreen.id,
               routes: {
+                SplashScreen.id:(context)=>SplashScreen(),
                 CustomPageView.id:(context)=> CustomPageView(),
                 HomeScreen.id:(context)=> HomeScreen(),
                 

@@ -32,7 +32,6 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
         ),
-       
         Container(
           height: size.height * 15,
           width: size.width * 1,
@@ -48,15 +47,17 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(
               height: 50,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/logoImage.png",
-                  height: 250,
-                  width: 250,
-                ),
-              ],
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/Foodrawerrr.gif",
+                    height: 250,
+                    width: 250,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -15,25 +15,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) =>  MaterialApp(
-          darkTheme: ThemeData.dark(),
-          
-          theme: ThemeData(
-          ),
-          debugShowCheckedModeBanner: false,
-              initialRoute: SplashScreen.id,
+        builder: (context, child) => MaterialApp(
+              darkTheme: ThemeData.dark(),
+              theme: ThemeData(),
+              debugShowCheckedModeBanner: false,
+              initialRoute: LoginScreen.id,
               routes: {
-                LoginScreen.id:(context)=>LoginScreen(),
-                SplashScreen.id:(context)=>SplashScreen(),
-                CustomPageView.id:(context)=> CustomPageView(),
-                HomeScreen.id:(context)=> HomeScreen(),
-                SplashScreen1.id:(context)=>SplashScreen1()
-                
+                LoginScreen.id: (context) => LoginScreen(),
+                SplashScreen.id: (context) => SplashScreen(),
+                CustomPageView.id: (context) => CustomPageView(),
+                HomeScreen.id: (context) => HomeScreen(),
+                SplashScreen1.id: (context) => SplashScreen1()
               },
             ));
   }

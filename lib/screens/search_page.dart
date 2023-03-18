@@ -68,6 +68,88 @@ class SearchScreen extends StatelessWidget {
           SizedBox(
             height: 20.h,
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Dietary',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 22.sp,
+                        color: const Color(0xFF000000))),
+                Text('Clear all',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18.sp,
+                        color: const Color(0xFF000000))),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: SizedBox(
+              width: size.width * 1,
+              child: Wrap(
+                spacing: 10,
+                runSpacing: 5,
+                children: [
+                  for (int i = 0; i < 10; i++)
+                    ActionChip(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 9),
+                        backgroundColor: Colors.white,
+                        disabledColor: Colors.white,
+                        label: Text('Veg',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 14.sp,
+                                color: const Color(0xFF000000)))),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Price Range',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 22.sp,
+                        color: const Color(0xFF000000))),
+                Text('Clear all',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18.sp,
+                        color: const Color(0xFF000000))),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: SizedBox(
+              width: size.width * 1,
+              child: Wrap(
+                spacing: 10,
+                runSpacing: 5,
+                children: [
+                  for (int i = 0; i < 10; i++)
+                    ActionChip(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 9),
+                        backgroundColor: Colors.white,
+                        disabledColor: Colors.white,
+                        label: Text('0-149',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w300,
+                                fontSize: 14.sp,
+                                color: const Color(0xFF000000)))),
+                ],
+              ),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -88,9 +170,9 @@ class SearchScreen extends StatelessWidget {
               ),
               SizedBox(
                 width: 20.w,
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

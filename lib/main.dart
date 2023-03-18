@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fooddrawer_app/customPageView.dart';
 import 'package:fooddrawer_app/screens/Home_page.dart';
+import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:fooddrawer_app/screens/login_page.dart';
 import 'package:fooddrawer_app/screens/menu_screen.dart';
 import 'package:fooddrawer_app/screens/profile_page.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               initialRoute: SplashScreen.id,
               routes: {
-                MenuScreen.id: (context) => MenuScreen(),
+                FoodScreen.id:(context)=>FoodScreen(),
+                MenuScreen.id:(context)=>MenuScreen(),
                 LoginScreen.id: (context) => LoginScreen(),
                 SplashScreen.id: (context) => SplashScreen(),
                 CustomPageView.id: (context) => CustomPageView(),

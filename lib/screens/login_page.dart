@@ -43,8 +43,16 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 TextField(
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                      color: Colors.white),
                   decoration: InputDecoration(
                     hintStyle: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        color: Colors.white),
+                    labelStyle: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                         color: Colors.white),
@@ -78,6 +86,10 @@ class LoginScreen extends StatelessWidget {
                   height: 20,
                 ),
                 TextField(
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                      color: Colors.white),
                   decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
@@ -111,6 +123,10 @@ class LoginScreen extends StatelessWidget {
                   height: 20,
                 ),
                 TextField(
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                      color: Colors.white),
                   decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
@@ -144,6 +160,10 @@ class LoginScreen extends StatelessWidget {
                   height: 20,
                 ),
                 TextField(
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18,
+                      color: Colors.white),
                   decoration: InputDecoration(
                       hintStyle: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,

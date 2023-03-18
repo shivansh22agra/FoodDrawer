@@ -22,6 +22,26 @@ class FoodScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Color(0xFF332F2F),
               ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        'Details',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20.sp,
+                          color: const Color(0xFF000000),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
             Positioned(
               bottom: 0,

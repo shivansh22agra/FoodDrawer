@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fooddrawer_app/screens/home_page.dart';
+import 'package:fooddrawer_app/setting_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../customPageView.dart';
@@ -26,7 +28,13 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => setting_screen(),
+                        ),
+                      );
+                    },
                     icon: Icon(Icons.arrow_back_ios_sharp),
                     label: Text(''),
                   ),

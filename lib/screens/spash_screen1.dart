@@ -56,13 +56,13 @@ class SplashScreen1 extends StatelessWidget {
                 child: MaterialButton(
                   color: const Color(0xFFFF2F2F),
                   onPressed: () {
-                    Navigator.pushNamed(context, CustomPageView.id);
+                    Navigator.pushNamed(context, LoginScreen.id);
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.r)),
                   padding: EdgeInsets.symmetric(vertical: 5.h),
                   child: Text(
-                    'Login',
+                    'Register',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 20.sp,

@@ -18,27 +18,24 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 26),
+                  padding: const EdgeInsets.only(top: 26),
                   height: 300,
                   child: Image.asset("assets/images/logoo.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: const Color(0xFFFF2F2F),
-                        width: 3.w,
-                      )),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: Text(
-                    "Sign up",
+                    "Register",
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w400,
                       fontSize: 25,
-                      color: Colors.white,
+                      color: const Color(0xFFFF2F2F),
                     ),
                   ),
                 ),
@@ -143,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                             color: const Color(0xFFFF2F2F), width: 3.w),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
@@ -152,8 +149,8 @@ class LoginScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: Colors.white),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 40),
                       fillColor: Color(0xFF1E1E1E),
                       filled: true,
                       hintText: "University mail ID",
@@ -176,11 +173,11 @@ class LoginScreen extends StatelessWidget {
                             color: const Color(0xFFFF2F2F), width: 3.w),
                       )),
                 ),
-                SizedBox(
-                  height: 200,
+                const SizedBox(
+                  height: 50,
                 ),
                 MaterialButton(
-                  color: Color(0xFFFF2F2F),
+                  color: const Color(0xFFFF2F2F),
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(

@@ -16,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> types = ['Foods', 'Drinks', 'Extras'];
+  List<bool> foodTypeBoolean = [false, false, false];
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -61,13 +63,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Text(
-                        'FID- ##########',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 18.sp,
-                            color: const Color(0xFFFFFFFF)),
-                      ),
+                      // Text(
+                      //   'FID- ##########',
+                      //   style: GoogleFonts.poppins(
+                      //       fontWeight: FontWeight.w300,
+                      //       fontSize: 18.sp,
+                      //       color: const Color(0xFFFFFFFF)),
+                      // ),
                     ],
                   ),
                 ],
@@ -102,22 +104,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   for (int i = 0; i < 3; i++)
-                    Chip(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 7, horizontal: 2),
-                        backgroundColor: Colors.white,
-                        avatar: const Icon(
-                          Icons.food_bank_outlined,
-                          color: Color(0xFF000000),
-                        ),
-                        label: Text(
-                          'Foods',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 18.sp,
-                            color: const Color(0xFF000000),
+                    GestureDetector(
+                      onTap: () {
+                        foodTypeBoolean = List.filled(3, false);
+                        foodTypeBoolean[i] = true;
+                        setState(() {});
+                      },
+                      child: Chip(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 7, horizontal: 2),
+                          backgroundColor: foodTypeBoolean[i]
+                              ? const Color(0xFF03F991)
+                              : Colors.white,
+                          avatar: const Icon(
+                            Icons.food_bank_outlined,
+                            color: Color(0xFF000000),
                           ),
-                        ))
+                          label: Text(
+                            types[i],
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 18.sp,
+                              color: const Color(0xFF000000),
+                            ),
+                          )),
+                    )
                 ],
               ),
               const SizedBox(

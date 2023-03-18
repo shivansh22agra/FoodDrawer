@@ -6,6 +6,7 @@ import 'package:fooddrawer_app/screens/cart_page.dart';
 import 'package:fooddrawer_app/screens/home_page.dart';
 import 'package:fooddrawer_app/screens/profile_page.dart';
 import 'package:fooddrawer_app/screens/search_page.dart';
+import 'package:fooddrawer_app/setting_screen.dart';
 import 'package:rive/rive.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -30,12 +31,8 @@ class _CustomPageViewState extends State<CustomPageView> {
         artboard: "DASHBOARD",
         stateMachineName: "State Machine 1",
         title: "Dashboard"),
-   
+    Rive(artboard: "RULES", stateMachineName: "State Machine 1", title: "USER"),
     Rive(
-        artboard: "RULES",
-        stateMachineName: "State Machine 1",
-        title: "USER"),
-         Rive(
         artboard: "SETTINGS",
         stateMachineName: "SETTINGS_Interactivity",
         title: "SETTINGS"),
@@ -53,7 +50,7 @@ class _CustomPageViewState extends State<CustomPageView> {
               HomeScreen(),
               SearchScreen(),
               CartScreen(),
-              ProfileScreen()
+              setting_screen()
             ],
           ),
           Positioned(

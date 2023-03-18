@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:fooddrawer_app/customPageView.dart";
+import "package:fooddrawer_app/screens/spash_screen1.dart";
 
 class SplashScreen extends StatefulWidget {
   static String id = "/splashScreen";
@@ -13,8 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
-      Navigator.pushNamed(context, CustomPageView.id);
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushNamed(context, SplashScreen1.id);
     });
   }
 
@@ -32,11 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
         ),
-        Container(
-          height: size.height * .35,
-          width: size.width * 1,
-          decoration: const BoxDecoration(color: Colors.black),
-        ),
+       
         Container(
           height: size.height * 15,
           width: size.width * 1,

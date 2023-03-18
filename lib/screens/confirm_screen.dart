@@ -10,7 +10,7 @@ class confirm_screen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF332F2F),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image.asset('assets/images/orderPlaced.gif'),
           Text(

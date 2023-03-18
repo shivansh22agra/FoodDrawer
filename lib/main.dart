@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fooddrawer_app/customPageView.dart';
 import 'package:fooddrawer_app/screens/Home_page.dart';
+import 'package:fooddrawer_app/screens/book_table.dart';
 import 'package:fooddrawer_app/screens/confirm_screen.dart';
 import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:fooddrawer_app/screens/login_page.dart';
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
                 SplashScreen1.id: (context) => SplashScreen1(),
                 ProfileScreen.id: (context) => ProfileScreen(),
                 setting_screen.id: (context) => setting_screen(),
-                confirm_screen.id: (context) => confirm_screen()
+                confirm_screen.id: (context) => confirm_screen(),
+                book_table.id: (context) => book_table()
               },
             ));
   }

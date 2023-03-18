@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fooddrawer_app/customPageView.dart';
 import 'package:fooddrawer_app/screens/Home_page.dart';
+import 'package:fooddrawer_app/screens/confirm_screen.dart';
 import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:fooddrawer_app/screens/login_page.dart';
 import 'package:fooddrawer_app/screens/menu_screen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
               darkTheme: ThemeData.dark(),
               theme: ThemeData(),
               debugShowCheckedModeBanner: false,
-              initialRoute: SplashScreen.id,
+              initialRoute: confirm_screen.id,
               routes: {
                 FoodScreen.id: (context) => FoodScreen(),
                 MenuScreen.id: (context) => MenuScreen(),
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
                 HomeScreen.id: (context) => HomeScreen(),
                 SplashScreen1.id: (context) => SplashScreen1(),
                 ProfileScreen.id: (context) => ProfileScreen(),
-                setting_screen.id: (context) => setting_screen()
+                setting_screen.id: (context) => setting_screen(),
+                confirm_screen.id: (context) => confirm_screen()
               },
             ));
   }

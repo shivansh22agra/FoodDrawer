@@ -4,8 +4,11 @@ import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MenuScreen extends StatelessWidget {
+  String restaurantName = "";
   static String id = "/MenuScreen";
-  const MenuScreen({super.key});
+  MenuScreen({
+    required
+    this.restaurantName});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +57,7 @@ class MenuScreen extends StatelessWidget {
                 ),
                 for (int i = 0; i < 3; i++)
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pushNamed(context, FoodScreen.id);
                     },
                     child: Padding(

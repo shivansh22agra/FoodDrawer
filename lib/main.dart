@@ -7,9 +7,16 @@ import 'package:fooddrawer_app/screens/login_page.dart';
 import 'package:fooddrawer_app/screens/menu_screen.dart';
 import 'package:fooddrawer_app/screens/spash_screen1.dart';
 import 'package:fooddrawer_app/screens/splash_screen.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+//      WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );
+    const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +35,9 @@ class MyApp extends StatelessWidget {
               initialRoute: SplashScreen.id,
               routes: {
                 FoodScreen.id:(context)=>FoodScreen(),
-                MenuScreen.id:(context)=>MenuScreen(),
+                MenuScreen.id:(context)=>MenuScreen(
+                  restaurantName: "",
+                ),
                 LoginScreen.id: (context) => LoginScreen(),
                 SplashScreen.id: (context) => SplashScreen(),
                 CustomPageView.id: (context) => CustomPageView(),

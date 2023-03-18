@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isloading = false;
   void fetchResturant() async {
-    isloading = false;
+    isloading = true;
     setState(() {});
     print('s');
     var response =
@@ -204,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 MaterialPageRoute(
                                     builder: (context) => MenuScreen(
                                         restaurantName:
-                                            restaurant[index].name ?? "")));
+                                            restaurant[index].name ?? "Burger King")));
                           },
                           child: Container(
                             height: size.height * 0.27,

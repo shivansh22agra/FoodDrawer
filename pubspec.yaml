@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^2.0.4
   google_fonts: ^4.0.3
   http: ^0.13.5
+  pay: ^1.1.0
   rive: ^0.9.1
   shared_preferences: ^2.0.18
 

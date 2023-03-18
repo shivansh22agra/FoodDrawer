@@ -27,17 +27,18 @@ class _CustomPageViewState extends State<CustomPageView> {
         stateMachineName: "HOME_interactivity",
         title: "Home"),
     Rive(
-        artboard: "SEARCH",
-        stateMachineName: "SEARCH_Interactivity",
-        title: "Search"),
+        artboard: "DASHBOARD",
+        stateMachineName: "State Machine 1",
+        title: "Dashboard"),
+   
     Rive(
+        artboard: "RULES",
+        stateMachineName: "State Machine 1",
+        title: "USER"),
+         Rive(
         artboard: "SETTINGS",
         stateMachineName: "SETTINGS_Interactivity",
         title: "SETTINGS"),
-    Rive(
-        artboard: "USER",
-        stateMachineName: "USER_Interactivity",
-        title: "USER"),
   ];
   @override
   Widget build(BuildContext context) {

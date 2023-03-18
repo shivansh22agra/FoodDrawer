@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fooddrawer_app/screens/menu_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -123,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -143,9 +145,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
               GridView.builder(
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -154,53 +153,56 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSpacing: 10.h),
                 itemCount: 4,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: size.height * 0.27,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            'http://www.superwallpapers.in/hdwallpapers/food-wallpaper-hd-40.jpg',
-                            fit: BoxFit.cover,
-                            height: size.height * 0.27,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, MenuScreen.id);
+                    },
+                    child: Container(
+                      height: size.height * 0.27,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              'http://www.superwallpapers.in/hdwallpapers/food-wallpaper-hd-40.jpg',
+                              fit: BoxFit.cover,
+                              height: size.height * 0.27,
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 20,
-                          left: 10,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Choco borger',
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.sp,
-                                    color: const Color(0xFFFFFFFF)),
-                              ),
-                              RatingBar.builder(
-                                initialRating: 3,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                itemSize: 15,
-                                allowHalfRating: true,
-                                itemCount: 5,
-                                itemBuilder: (context, _) => const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
+                          Positioned(
+                            bottom: 20,
+                            left: 10,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Choco burger',
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16.sp,
+                                      color: const Color(0xFFFFFFFF)),
                                 ),
-                                onRatingUpdate: (rating) {
-                                  print(rating);
-                                },
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                                RatingBar.builder(
+                                  initialRating: 3,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  itemSize: 15,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemBuilder: (context, _) => const Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {},
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

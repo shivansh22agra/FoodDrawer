@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fooddrawer_app/screens/book_table.dart';
 import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,19 +43,42 @@ class MenuScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Menu',
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w200,
-                      fontSize: 26.sp,
-                      color: const Color(0xFFFFFFFF)),
+                Row(
+                  children: [
+                    Text(
+                      'Menu',
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w200,
+                          fontSize: 26.sp,
+                          color: const Color(0xFFFFFFFF)),
+                    ),
+                    SizedBox(
+                      width: 125,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => book_table(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Book Table',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w200,
+                            fontSize: 26.sp,
+                            color: const Color(0xFFFFFFFF)),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 for (int i = 0; i < 3; i++)
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pushNamed(context, FoodScreen.id);
                     },
                     child: Padding(

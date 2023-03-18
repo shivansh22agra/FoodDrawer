@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, SplashScreen1.id);
+       Navigator.pushNamed(context, SplashScreen1.id);
     });
   }
 
@@ -22,46 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-        body: Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/bgImage.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Container(
-          height: size.height * 15,
-          width: size.width * 1,
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-            colors: [Colors.black, Colors.transparent],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          )),
-        ),
-        Column(
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/images/Foodrawerrr.gif",
-                    height: 250,
-                    width: 250,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
-    ));
+        backgroundColor: Colors.black,
+        body: Center(
+            child: Hero(
+              tag: 'logo',
+              child: Image.asset(
+                      "assets/images/Foodrawerrr.gif",
+                      height: 300,
+                    ),
+            )));
   }
 }

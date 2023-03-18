@@ -18,10 +18,8 @@ class CustomPageView extends StatefulWidget {
 
 class _CustomPageViewState extends State<CustomPageView> {
   int SelectectBottomIndex = 0;
-  PageController pageController = PageController(
-    initialPage: 0,
-    viewportFraction: 1
-  );
+  PageController pageController =
+      PageController(initialPage: 0, viewportFraction: 1);
   // Rive Rive = Rive();
   List<Rive> bottomIcons = [
     Rive(
@@ -45,63 +43,77 @@ class _CustomPageViewState extends State<CustomPageView> {
   Widget build(BuildContext context) {
     print(bottomIcons.length + 1);
     return Scaffold(
-      body: PageView(
-        controller: pageController,
-
-        children: [HomeScreen(), SearchScreen(), CartScreen(), ProfileScreen()],
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(12.sp),
-          margin: EdgeInsets.symmetric(horizontal: 24.sp),
-          decoration: BoxDecoration(
-              color: bgColor, borderRadius: BorderRadius.circular(24.r)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      backgroundColor: const Color(0xFF332F2F),
+      body: Stack(
+        children: [
+          PageView(
+            controller: pageController,
             children: [
-              ...List.generate(bottomIcons.length, (index) {
-                return GestureDetector(
-                  onTap: () {
-                    SelectectBottomIndex = index;
-                    print(bottomIcons[index].input?.value);
-                    bottomIcons[index].input?.change(true);
-                    Future.delayed(const Duration(seconds: 1), () {
-                      bottomIcons[index].input?.change(false);
-                    });
-                    pageController.animateToPage(
-                       index,
-                       curve: Curves.easeInOut,
-                      duration: const Duration(milliseconds: 500),
-                    );
-
-                    setState(() {});
-                  },
-                  child: SizedBox(
-                    height: 30.h,
-                    width: 30.w,
-                    child: Opacity(
-                      opacity: SelectectBottomIndex == index ? 1 : 0.5,
-                      child: RiveAnimation.asset(
-                        "assets/allIcons.riv",
-                        artboard: bottomIcons[index].artboard,
-                        onInit: (artboard) {
-                          StateMachineController? controller =
-                              Riveutils.getRiveController(
-                                  artboard,
-                                  bottomIcons[index]
-                                      .stateMachineName
-                                      .toString());
-                          bottomIcons[index].input =
-                              controller?.findSMI("active");
-                        },
-                      ),
-                    ),
-                  ),
-                );
-              })
+              HomeScreen(),
+              SearchScreen(),
+              CartScreen(),
+              ProfileScreen()
             ],
           ),
-        ),
+          Positioned(
+            bottom: 20.h,
+            left: 20.w,
+            right: 20.w,
+            child: SafeArea(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.all(12.sp),
+                decoration: BoxDecoration(
+                    color: bgColor, borderRadius: BorderRadius.circular(24.r)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ...List.generate(bottomIcons.length, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          SelectectBottomIndex = index;
+                          print(bottomIcons[index].input?.value);
+                          bottomIcons[index].input?.change(true);
+                          Future.delayed(const Duration(seconds: 1), () {
+                            bottomIcons[index].input?.change(false);
+                          });
+                          pageController.animateToPage(
+                            index,
+                            curve: Curves.easeInOut,
+                            duration: const Duration(milliseconds: 500),
+                          );
+
+                          setState(() {});
+                        },
+                        child: SizedBox(
+                          height: 30.h,
+                          width: 30.w,
+                          child: Opacity(
+                            opacity: SelectectBottomIndex == index ? 1 : 0.5,
+                            child: RiveAnimation.asset(
+                              "assets/allIcons.riv",
+                              artboard: bottomIcons[index].artboard,
+                              onInit: (artboard) {
+                                StateMachineController? controller =
+                                    Riveutils.getRiveController(
+                                        artboard,
+                                        bottomIcons[index]
+                                            .stateMachineName
+                                            .toString());
+                                bottomIcons[index].input =
+                                    controller?.findSMI("active");
+                              },
+                            ),
+                          ),
+                        ),
+                      );
+                    })
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

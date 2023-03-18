@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
               darkTheme: ThemeData.dark(),
               theme: ThemeData(),
               debugShowCheckedModeBanner: false,
-              initialRoute: LoginScreen.id,
+              initialRoute: SplashScreen.id,
               routes: {
                 LoginScreen.id: (context) => LoginScreen(),
                 SplashScreen.id: (context) => SplashScreen(),

@@ -1,15 +1,49 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fooddrawer_app/screens/book_table.dart';
 import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   String restaurantName = "";
   static String id = "/MenuScreen";
-  MenuScreen({
-    required
-    this.restaurantName});
+  MenuScreen({required this.restaurantName});
+
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  bool isloading = false;
+  List<Menu> menu = [];
+  void fetchMenu() async {
+    isloading = true;
+    setState(() {});
+    var response = await http.get(Uri.parse('http://10.0.2.2:5000/api/menu/'));
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      print(
+          'data ${data['data'][0]['restaurantName']} ${widget.restaurantName}');
+      for (int i = 0; i < data['data'].length; i++) {
+        if (data['data'][i]['restaurantName'] ==
+            widget.restaurantName.toString()) {
+          menu.add(Menu.fromJson(data['data'][i]));
+        }
+      }
+      print('menu ${menu[0].name}');
+    }
+    isloading = false;
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchMenu();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,35 +80,12 @@ class MenuScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Text(
-                      'Menu',
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w200,
-                          fontSize: 26.sp,
-                          color: const Color(0xFFFFFFFF)),
-                    ),
-                    SizedBox(
-                      width: 125,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => book_table(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Book Table',
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w200,
-                            fontSize: 26.sp,
-                            color: const Color(0xFFFFFFFF)),
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Menu',
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w200,
+                      fontSize: 26.sp,
+                      color: const Color(0xFFFFFFFF)),
                 ),
                 const SizedBox(
                   height: 10,

@@ -7,6 +7,7 @@ import 'package:fooddrawer_app/screens/confirm_screen.dart';
 import 'package:fooddrawer_app/screens/food_single.dart';
 import 'package:fooddrawer_app/screens/login_page.dart';
 import 'package:fooddrawer_app/screens/menu_screen.dart';
+import 'package:fooddrawer_app/screens/otp_screen.dart';
 import 'package:fooddrawer_app/screens/profile_page.dart';
 import 'package:fooddrawer_app/screens/spash_screen1.dart';
 import 'package:fooddrawer_app/screens/splash_screen.dart';
@@ -18,7 +19,7 @@ void main() {
 //   await Firebase.initializeApp(
 //     options: DefaultFirebaseOptions.currentPlatform,
 // );
-    const MyApp());
+      const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -46,7 +47,8 @@ class MyApp extends StatelessWidget {
                 ProfileScreen.id: (context) => ProfileScreen(),
                 setting_screen.id: (context) => setting_screen(),
                 confirm_screen.id: (context) => confirm_screen(),
-                book_table.id: (context) => book_table()
+                book_table.id: (context) => book_table(),
+                otp_screen.id: (context) => otp_screen(),
               },
             ));
   }
